@@ -1,0 +1,186 @@
+[
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_1a",
+          "type": "function",
+          "function": {
+            "name": "search_options",
+            "arguments": "{\"city\":\"Rockford\",\"date\":\"2022-03-16\",\"kind\":\"flight\"}"
+          }
+        },
+        {
+          "id": "call_1b",
+          "type": "function",
+          "function": {
+            "name": "search_options",
+            "arguments": "{\"city\":\"St. Petersburg\",\"date\":\"2022-03-18\",\"kind\":\"flight\"}"
+          }
+        },
+        {
+          "id": "call_1c",
+          "type": "function",
+          "function": {
+            "name": "search_options",
+            "arguments": "{\"city\":\"Rockford\",\"kind\":\"lodging\",\"limit\":10}"
+          }
+        },
+        {
+          "id": "call_1d",
+          "type": "function",
+          "function": {
+            "name": "search_options",
+            "arguments": "{\"city\":\"Rockford\",\"kind\":\"restaurant\"}"
+          }
+        },
+        {
+          "id": "call_1e",
+          "type": "function",
+          "function": {
+            "name": "search_options",
+            "arguments": "{\"city\":\"Rockford\",\"kind\":\"attraction\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_2a",
+          "type": "function",
+          "function": {
+            "name": "get_option",
+            "arguments": "{\"option_id\":\"T01-03-001\"}"
+          }
+        },
+        {
+          "id": "call_2b",
+          "type": "function",
+          "function": {
+            "name": "get_option",
+            "arguments": "{\"option_id\":\"T01-04-000\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_3",
+          "type": "function",
+          "function": {
+            "name": "check_plan",
+            "arguments": "{\"plan\":{\"daily\":[{\"attraction_id\":\"T01-01-000\",\"date\":\"2022-03-16\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-001\",\"date\":\"2022-03-17\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-002\",\"date\":\"2022-03-18\",\"restaurant_id\":\"T01-02-001\"}],\"lodging_id\":\"T01-03-001\",\"outbound_id\":\"T01-04-000\",\"return_id\":\"T01-07-000\",\"rooms\":1}}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_4fix",
+          "type": "function",
+          "function": {
+            "name": "check_plan",
+            "arguments": "{\"plan\":{\"daily\":[{\"attraction_id\":\"T01-01-000\",\"date\":\"2022-03-16\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-001\",\"date\":\"2022-03-17\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-002\",\"date\":\"2022-03-18\",\"restaurant_id\":\"T01-02-001\"}],\"lodging_id\":\"T01-03-007\",\"outbound_id\":\"T01-04-000\",\"return_id\":\"T01-07-000\",\"rooms\":1}}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_save",
+          "type": "function",
+          "function": {
+            "name": "save_itinerary",
+            "arguments": "{\"plan\":{\"daily\":[{\"attraction_id\":\"T01-01-000\",\"date\":\"2022-03-16\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-001\",\"date\":\"2022-03-17\",\"restaurant_id\":\"T01-02-001\"},{\"attraction_id\":\"T01-01-002\",\"date\":\"2022-03-18\",\"restaurant_id\":\"T01-02-001\"}],\"lodging_id\":\"T01-03-007\",\"outbound_id\":\"T01-04-000\",\"return_id\":\"T01-07-000\",\"rooms\":1}}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_read",
+          "type": "function",
+          "function": {
+            "name": "get_itinerary",
+            "arguments": "{\"itinerary_id\":\"$ITINERARY\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": "{\"message\":\"教学行程已保存并读回；仅覆盖往返机票、住宿与每日一餐。门票、市内交通与其他餐费未知，营业时间未核验。\",\"status\":\"COMPLETED\"}"
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  }
+]

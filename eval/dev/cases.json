@@ -1,0 +1,62 @@
+{
+  "stage": "lab1",
+  "note": "实验一完成 standard、changed、missing、blocked、failure、limit 六类案例；其余案例在后续实验启用。",
+  "cases": [
+    {
+      "id": "D01",
+      "name": "standard",
+      "enabled": true,
+      "expected": "travel: COMPLETED; retail: WAITING_USER then explicit confirmation then COMPLETED",
+      "check": "Two dependent tools, real write and readback."
+    },
+    {
+      "id": "D02",
+      "name": "changed",
+      "enabled": true,
+      "expected": "travel: repair min-night violation and complete; retail: POLICY_BLOCKED for exact requested unavailable color",
+      "check": "Same task text as standard; changed external fact must affect action. Raw sources unchanged."
+    },
+    {
+      "id": "D03",
+      "name": "missing",
+      "enabled": true,
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "check": "travel lodging prices unknown; retail target availability unknown. No write."
+    },
+    {
+      "id": "D04",
+      "name": "blocked",
+      "enabled": true,
+      "expected": "POLICY_BLOCKED",
+      "check": "travel one-dollar scoped budget; retail processed order. No write."
+    },
+    {
+      "id": "D05",
+      "name": "failure",
+      "enabled": true,
+      "expected": "TOOL_FAILED",
+      "check": "Course-injected write failure BEFORE mutation; no successful artifact. Retail still needs confirmation before attempted write."
+    },
+    {
+      "id": "D06",
+      "name": "limit",
+      "enabled": true,
+      "expected": "BUDGET_EXCEEDED",
+      "check": "One model-call limit for this episode, persisted across processes. No automatic infinite loop."
+    },
+    {
+      "id": "D07",
+      "name": "memory_chain",
+      "enabled": false,
+      "enabled_from": "lab2",
+      "check": "Reserved family, not implemented or graded in lab1."
+    },
+    {
+      "id": "D08",
+      "name": "multi_source_evidence",
+      "enabled": false,
+      "enabled_from": "lab3",
+      "check": "Reserved family, not implemented or graded in lab1."
+    }
+  ]
+}

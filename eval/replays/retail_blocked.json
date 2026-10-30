@@ -1,0 +1,102 @@
+[
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_1",
+          "type": "function",
+          "function": {
+            "name": "identify_customer",
+            "arguments": "{\"email\":\"lei.khan8439@example.com\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_2",
+          "type": "function",
+          "function": {
+            "name": "get_order",
+            "arguments": "{\"order_id\":\"#W2787996\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_3",
+          "type": "function",
+          "function": {
+            "name": "get_product",
+            "arguments": "{\"product_id\":\"9523456873\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_4",
+          "type": "function",
+          "function": {
+            "name": "check_action",
+            "arguments": "{\"action\":{\"new_item_id\":\"3799046073\",\"old_item_id\":\"9354168549\",\"order_id\":\"#W2787996\",\"payment_method_id\":\"credit_card_7017098\"}}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": "{\"message\":\"库存或订单状态不允许该换货，不提交。\",\"status\":\"POLICY_BLOCKED\"}"
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  }
+]

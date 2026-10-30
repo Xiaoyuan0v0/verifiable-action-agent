@@ -1,0 +1,158 @@
+[
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_1",
+          "type": "function",
+          "function": {
+            "name": "identify_customer",
+            "arguments": "{\"email\":\"lei.khan8439@example.com\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_2",
+          "type": "function",
+          "function": {
+            "name": "get_order",
+            "arguments": "{\"order_id\":\"#W2787996\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_3",
+          "type": "function",
+          "function": {
+            "name": "get_product",
+            "arguments": "{\"product_id\":\"9523456873\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_4",
+          "type": "function",
+          "function": {
+            "name": "check_action",
+            "arguments": "{\"action\":{\"new_item_id\":\"3799046073\",\"old_item_id\":\"9354168549\",\"order_id\":\"#W2787996\",\"payment_method_id\":\"credit_card_7017098\"}}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": "{\"message\":\"请核对 check_action 返回的订单、旧新变体、价差和支付方式，确认这是本订单所有需换的商品。尚未提交；需在终端确认具体提案。\",\"status\":\"WAITING_USER\"}"
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_6",
+          "type": "function",
+          "function": {
+            "name": "apply_action",
+            "arguments": "{\"proposal_id\":\"$PROPOSAL\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_7",
+          "type": "function",
+          "function": {
+            "name": "get_order",
+            "arguments": "{\"order_id\":\"#W2787996\"}"
+          }
+        }
+      ]
+    },
+    "finish_reason": "tool_calls",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  },
+  {
+    "message": {
+      "role": "assistant",
+      "content": "{\"message\":\"已读回 exchange requested，表示本地换货申请已提交；实物未换好，没有真实扣款或发邮件。\",\"status\":\"COMPLETED\"}"
+    },
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    "fixture": "COURSE_SCRIPT_NOT_MODEL"
+  }
+]

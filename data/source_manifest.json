@@ -1,0 +1,41 @@
+{
+  "version": "lab1-data-v1",
+  "conversion": "prepare_data.py v1",
+  "sampling": "first 3 travel lines; deterministic sorted retail selection",
+  "random_seed": null,
+  "files": [
+    {
+      "file": "travel_train.jsonl",
+      "url": "https://raw.githubusercontent.com/OSU-NLP-Group/TravelPlanner/e52c87f4ac348a3410c46dc3553c519db5ec5e23/database/train_ref_info.jsonl",
+      "sha256": "f9eff8c9e3056c726c4bc46b8183a51efdf63760755b0183fa36f1c9f14b6e83",
+      "bytes": 1197800
+    },
+    {
+      "file": "retail_db.json",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/7aad81c37a3a78b4ed3e4866769f851400c64415/data/tau2/domains/retail/db.json",
+      "sha256": "413a65160adbdb5fde0ffc0015c49b6d70250b10c18128de169b597af7766765",
+      "bytes": 2811616
+    },
+    {
+      "file": "retail_policy.md",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/7aad81c37a3a78b4ed3e4866769f851400c64415/data/tau2/domains/retail/policy.md",
+      "sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "bytes": 6699
+    }
+  ],
+  "licenses": {
+    "travel_data": "CC-BY-4.0; https://huggingface.co/datasets/osunlp/TravelPlanner",
+    "travel_code": "MIT; data/licenses/TravelPlanner_CODE_LICENSE",
+    "retail": "MIT; data/licenses/tau2_LICENSE"
+  },
+  "derived": [
+    {
+      "file": "data/derived/travel.json",
+      "sha256": "8595112d9376ec4fc65cfa216fd58215319f1190084165182d2c97d1943c1287"
+    },
+    {
+      "file": "data/derived/retail.json",
+      "sha256": "7af2d30666f663b3a6d51ce67064bd68083b002c6bf053aa609b6099ff6dc798"
+    }
+  ]
+}

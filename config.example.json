@@ -1,0 +1,42 @@
+{
+  "provider": "deepseek",
+  "profiles": {
+    "deepseek": {
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-flash",
+      "output_limit_field": "max_tokens",
+      "extra": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    },
+    "minimax": {
+      "base_url": "https://api.minimax.cn/v1",
+      "model": "FILL_FROM_CURRENT_CONSOLE",
+      "output_limit_field": "max_completion_tokens",
+      "extra": {}
+    },
+    "kimi": {
+      "base_url": "https://api.moonshot.cn/v1",
+      "model": "FILL_FROM_CURRENT_CONSOLE",
+      "output_limit_field": "max_tokens",
+      "extra": {}
+    }
+  },
+  "limits": {
+    "model_calls": 12,
+    "tool_calls": 16,
+    "request_timeout_seconds": 30,
+    "active_seconds": 180,
+    "max_output_tokens": 2048,
+    "max_context_bytes": 60000,
+    "max_cost_cny": 1.0
+  },
+  "pricing": {
+    "input_cny_per_million": 2.0,
+    "output_cny_per_million": 8.0,
+    "verified_on": "2026-10-29",
+    "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/"
+  }
+}

@@ -1,0 +1,6 @@
+"""Lab 3 扩展位置。原始文档→片段→索引的来源映射须保留。"""
+from typing import Protocol
+
+class KnowledgeStore(Protocol):
+    def retrieve(self, *, query: str, user_scope: str, version: str, limit: int) -> list[dict]: ...
+    def invalidate(self, *, source_id: str, version: str) -> None: ...

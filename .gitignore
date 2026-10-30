@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+config.local.json
+state/runtime/
+state/archive/
+runs/
+reports/submission/
+.DS_Store
