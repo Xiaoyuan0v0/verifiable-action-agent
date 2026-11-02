@@ -51,8 +51,9 @@ def _call_signature(call):
     if not isinstance(call,dict): return (None,None,None)
     fn=call.get('function')
     if not isinstance(fn,dict): return (call.get('id'),None,None)
+    name=fn.get('name')
     args=fn.get('arguments')
-    return (call.get('id'),fn.get('name'),args if isinstance(args,str) else repr(args))
+    return (call.get('id'),name if isinstance(name,str) else repr(name),args if isinstance(args,str) else repr(args))
 
 def run(session):
     """返回 session.end(status, message) 的字典。
@@ -113,7 +114,6 @@ def run(session):
             repeated=[sig for sig in signatures if signatures.count(sig)>1 or sig in seen_calls]
             if repeated:
                 return session.end('TOOL_FAILED','模型重复请求了同一个工具调用：'+','.join(sorted(set(str(sig[0]) for sig in repeated))))
-            seen_calls.update(signatures)
 
             if session.route=='retail':
                 if len(tool_calls)>1:
@@ -128,6 +128,10 @@ def run(session):
                         format_retries+=1
                         continue
                     return session.end('TOOL_FAILED','retail 同一轮既发起工具调用又向用户作答，已回传错误')
+
+            # 只把真正进入分派的调用记为已见；被整批拒绝的调用没有执行，
+            # 模型修正批次后沿用同一 ID 重发仍是合法修正。
+            seen_calls.update(signatures)
 
             # 4) 逐个分派并回传。每个调用 ID 都要有一条观察，模型才能看到结果。
             for call in tool_calls:
