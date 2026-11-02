@@ -42,6 +42,18 @@ def _call_ids(calls):
         ids.append(call.get('id') if isinstance(call,dict) else None)
     return ids
 
+def _call_signature(call):
+    """一次工具调用的身份：ID + 工具名 + 参数。
+
+    只用 ID 判重会误杀「同一个 ID 换一个动作」的合法后续调用；
+    真正需要拦的是「完全相同的一次调用」反复出现，即模型在原地打转。
+    """
+    if not isinstance(call,dict): return (None,None,None)
+    fn=call.get('function')
+    if not isinstance(fn,dict): return (call.get('id'),None,None)
+    args=fn.get('arguments')
+    return (call.get('id'),fn.get('name'),args if isinstance(args,str) else repr(args))
+
 def run(session):
     """返回 session.end(status, message) 的字典。
     可用接口：session.ask(), session.execute(name,args), session.messages,
@@ -59,7 +71,7 @@ def run(session):
     """
     provider_retries=0
     format_retries=0
-    seen_call_ids=set()
+    seen_calls=set()
 
     while True:
         # 1) 请求模型。预算上限由 session.ask() 统一检查并抛出 BudgetExceeded。
@@ -95,11 +107,13 @@ def run(session):
             ids=_call_ids(tool_calls)
             if any(not isinstance(i,str) or not i.strip() for i in ids):
                 return session.end('TOOL_FAILED','模型返回的工具调用缺少有效 ID')
-            repeated=[i for i in ids if i in seen_call_ids]
+            # 判重键是「ID + 工具名 + 参数」：同一个 ID 换一个动作是合法的后续调用，
+            # 完全相同的一次调用重复出现，才是模型在原地打转。
+            signatures=[_call_signature(call) for call in tool_calls]
+            repeated=[sig for sig in signatures if signatures.count(sig)>1 or sig in seen_calls]
             if repeated:
-                # 同一 ID 重复出现：说明模型在原地打转，不能无限循环。
-                return session.end('TOOL_FAILED','模型重复请求了同一个工具调用 ID：'+','.join(sorted(set(repeated))))
-            seen_call_ids.update(ids)
+                return session.end('TOOL_FAILED','模型重复请求了同一个工具调用：'+','.join(sorted(set(str(sig[0]) for sig in repeated))))
+            seen_calls.update(signatures)
 
             if session.route=='retail':
                 if len(tool_calls)>1:

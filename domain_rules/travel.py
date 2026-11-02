@@ -145,8 +145,8 @@ def check_budget(plan,task,records):
     PASS 的 details 必须含 total_usd 字符串与 unpriced 非空列表；
     不把门票、市内交通和其他餐费记为 0，不宣称全部真实费用已覆盖。
     """
-    if not isinstance(plan,dict): return rule('TR3','FAIL','plan 不是对象')
     unpriced=['attraction tickets','local transport','other meals']
+    if not isinstance(plan,dict): return rule('TR3','FAIL','plan 不是对象',unpriced=unpriced)
     budget=_money(task.get('budget_usd'))
     if budget is None:
         return rule('TR3','UNKNOWN','任务预算缺失或不是数值，无法比较',budget_usd=repr(task.get('budget_usd')),unpriced=unpriced)
